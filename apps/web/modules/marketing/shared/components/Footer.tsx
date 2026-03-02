@@ -1,6 +1,5 @@
 import { LocaleLink } from "@i18n/routing";
 import { Logo } from "@repo/ui";
-import { config } from "@/config";
 
 export function Footer() {
 	return (
@@ -9,7 +8,10 @@ export function Footer() {
 				<div>
 					<Logo className="opacity-70 grayscale" />
 					<p className="mt-3 text-sm opacity-70">
-						© {new Date().getFullYear()} {config.appName}
+						© {new Date().getFullYear()}{" "}
+						<a href="https://codecraft.consulting" className="">
+							CodeCraft Consulting
+						</a>
 					</p>
 				</div>
 

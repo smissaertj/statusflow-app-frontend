@@ -19,9 +19,7 @@ const formSchema = z.object({
 
 export function Hero() {
 	const t = useTranslations();
-	const waitlistMutation = useMutation(
-		orpc.waitlist.join.mutationOptions(),
-	);
+	const waitlistMutation = useMutation(orpc.waitlist.join.mutationOptions());
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
@@ -91,14 +89,15 @@ export function Hero() {
 									</p>
 								)}
 								<p className="mt-3 text-foreground/40 text-xs">
-									No credit card required. Unsubscribe anytime.
+									No credit card required. Unsubscribe
+									anytime.
 								</p>
 							</form>
 						)}
 					</div>
 				</div>
 
-				<div className="mx-auto mt-12 max-w-4xl rounded-4xl border bg-primary/5 p-4 lg:mt-16">
+				<div className="mx-auto mt-12 max-w-4xl rounded-4xl border bg-primary/5 lg:mt-16">
 					<Image
 						src={heroImage}
 						alt="StatusFlow — Your website, globally monitored"

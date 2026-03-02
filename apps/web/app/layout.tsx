@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 		default: config.appName,
 		template: `%s | ${config.appName}`,
 	},
+	icons: {
+		icon: "/images/favicon.png",
+	},
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
