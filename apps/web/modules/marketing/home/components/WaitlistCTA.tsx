@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
+	firstName: z.string().min(1),
+	lastName: z.string().min(1),
 	email: z.string().email(),
 });
 
@@ -25,15 +27,21 @@ export function WaitlistCTA() {
 		resolver: zodResolver(formSchema),
 	});
 
-	const onSubmit = form.handleSubmit(async ({ email }) => {
-		try {
-			await waitlistMutation.mutateAsync({ email });
-		} catch {
-			form.setError("email", {
-				message: t("waitlist.hints.error.message"),
-			});
-		}
-	});
+	const onSubmit = form.handleSubmit(
+		async ({ firstName, lastName, email }) => {
+			try {
+				await waitlistMutation.mutateAsync({
+					firstName,
+					lastName,
+					email,
+				});
+			} catch {
+				form.setError("email", {
+					message: t("waitlist.hints.error.message"),
+				});
+			}
+		},
+	);
 
 	return (
 		<section className="py-12 lg:py-16 xl:py-24">
@@ -62,6 +70,20 @@ export function WaitlistCTA() {
 							</Alert>
 						) : (
 							<form onSubmit={onSubmit}>
+								<div className="mb-2 flex items-center gap-2">
+									<Input
+										type="text"
+										required
+										placeholder={t("waitlist.firstName")}
+										{...form.register("firstName")}
+									/>
+									<Input
+										type="text"
+										required
+										placeholder={t("waitlist.lastName")}
+										{...form.register("lastName")}
+									/>
+								</div>
 								<div className="flex items-center gap-2">
 									<Input
 										type="email"

@@ -277,7 +277,7 @@
 			"subject": "Welcome to our newsletter"
 		},
 		"waitlistSignup": {
-			"body": "You're on the StatusFlow waiting list! We're working hard to build the leanest, fastest uptime monitoring tool on the market. As an early supporter, you'll get 1 month of Pro features for free when we launch. We'll be in touch soon.",
+			"body": "Hey {firstName}, you're on the StatusFlow waiting list! We're working hard to build the leanest, fastest uptime monitoring tool on the market. As an early supporter, you'll get 1 month of Pro features for free when we launch. We'll be in touch soon.",
 			"subject": "You're on the StatusFlow waiting list!"
 		},
 		"organizationInvitation": {
@@ -303,7 +303,9 @@
 		"title": "Get early access"
 	},
 	"waitlist": {
-		"email": "Enter your best email",
+		"firstName": "First name",
+		"lastName": "Last name",
+		"email": "Your email address",
 		"hints": {
 			"error": {
 				"message": "Something went wrong. Please try again later."

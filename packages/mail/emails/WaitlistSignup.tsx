@@ -5,7 +5,13 @@ import Wrapper from "../components/Wrapper";
 import type { BaseMailProps } from "../types";
 import { defaultLocale, defaultTranslations } from "../util/translations";
 
-export function WaitlistSignup({ locale, translations }: BaseMailProps) {
+export function WaitlistSignup({
+	firstName,
+	locale,
+	translations,
+}: {
+	firstName: string;
+} & BaseMailProps) {
 	const t = createTranslator({
 		locale,
 		messages: translations,
@@ -16,7 +22,7 @@ export function WaitlistSignup({ locale, translations }: BaseMailProps) {
 			<Heading className="text-xl">
 				{t("mail.waitlistSignup.subject")}
 			</Heading>
-			<Text>{t("mail.waitlistSignup.body")}</Text>
+			<Text>{t("mail.waitlistSignup.body", { firstName })}</Text>
 		</Wrapper>
 	);
 }
@@ -24,6 +30,7 @@ export function WaitlistSignup({ locale, translations }: BaseMailProps) {
 WaitlistSignup.PreviewProps = {
 	locale: defaultLocale,
 	translations: defaultTranslations,
+	firstName: "John",
 };
 
 export default WaitlistSignup;

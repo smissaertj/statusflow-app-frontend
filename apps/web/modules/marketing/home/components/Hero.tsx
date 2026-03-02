@@ -14,6 +14,8 @@ import * as z from "zod";
 import heroImage from "../../../../public/images/hero-image.png";
 
 const formSchema = z.object({
+	firstName: z.string().min(1),
+	lastName: z.string().min(1),
 	email: z.string().email(),
 });
 
@@ -25,15 +27,21 @@ export function Hero() {
 		resolver: zodResolver(formSchema),
 	});
 
-	const onSubmit = form.handleSubmit(async ({ email }) => {
-		try {
-			await waitlistMutation.mutateAsync({ email });
-		} catch {
-			form.setError("email", {
-				message: t("waitlist.hints.error.message"),
-			});
-		}
-	});
+	const onSubmit = form.handleSubmit(
+		async ({ firstName, lastName, email }) => {
+			try {
+				await waitlistMutation.mutateAsync({
+					firstName,
+					lastName,
+					email,
+				});
+			} catch {
+				form.setError("email", {
+					message: t("waitlist.hints.error.message"),
+				});
+			}
+		},
+	);
 
 	return (
 		<div id="waitlist" className="relative max-w-full overflow-x-hidden">
@@ -65,6 +73,22 @@ export function Hero() {
 							</Alert>
 						) : (
 							<form onSubmit={onSubmit}>
+								<div className="mb-2 flex items-center gap-2">
+									<Input
+										type="text"
+										required
+										placeholder={t("waitlist.firstName")}
+										className="h-12"
+										{...form.register("firstName")}
+									/>
+									<Input
+										type="text"
+										required
+										placeholder={t("waitlist.lastName")}
+										className="h-12"
+										{...form.register("lastName")}
+									/>
+								</div>
 								<div className="flex items-center gap-2">
 									<Input
 										type="email"
