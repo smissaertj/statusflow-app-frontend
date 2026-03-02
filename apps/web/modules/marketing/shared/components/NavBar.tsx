@@ -9,19 +9,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@repo/ui/components/sheet";
-import { useSession } from "@saas/auth/hooks/use-session";
 import { ColorModeToggle } from "@shared/components/ColorModeToggle";
-import { LocaleSwitch } from "@shared/components/LocaleSwitch";
 import { MenuIcon } from "lucide-react";
-import NextLink from "next/link";
 import { useTranslations } from "next-intl";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDebounceCallback } from "usehooks-ts";
-import { config } from "@/config";
 
 export function NavBar() {
 	const t = useTranslations();
-	const { user } = useSession();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const localePathname = useLocalePathname();
 	const [isTop, setIsTop] = useState(true);
@@ -57,33 +52,17 @@ export function NavBar() {
 		href: string;
 	}[] = [
 		{
-			label: t("common.menu.pricing"),
-			href: "/#pricing",
+			label: t("common.menu.features"),
+			href: "/#features",
 		},
 		{
 			label: t("common.menu.faq"),
 			href: "/#faq",
 		},
 		{
-			label: t("common.menu.blog"),
-			href: "/blog",
-		},
-		{
-			label: t("common.menu.changelog"),
-			href: "/changelog",
-		},
-		{
 			label: t("common.menu.contact"),
-			href: "/contact",
+			href: "/#contact",
 		},
-		...(config.docsLink
-			? [
-					{
-						label: t("common.menu.docs"),
-						href: config.docsLink,
-					},
-				]
-			: []),
 	];
 
 	const isMenuItemActive = (href: string) => localePathname.startsWith(href);
@@ -132,9 +111,6 @@ export function NavBar() {
 
 					<div className="flex flex-1 items-center justify-end gap-3">
 						<ColorModeToggle />
-						<Suspense>
-							<LocaleSwitch />
-						</Suspense>
 
 						<Sheet
 							open={mobileMenuOpen}
@@ -170,45 +146,26 @@ export function NavBar() {
 										</LocaleLink>
 									))}
 
-									<NextLink
-										key={user ? "start" : "login"}
-										href={user ? "/app" : "/auth/login"}
-										className="block px-3 py-2 text-base"
+									<LocaleLink
+										href="/#waitlist"
+										className="mt-2 block px-3 py-2 font-medium text-primary text-base"
 										onClick={handleMobileMenuClose}
-										prefetch={!user}
 									>
-										{user
-											? t("common.menu.dashboard")
-											: t("common.menu.login")}
-									</NextLink>
+										{t("common.menu.joinWaitlist")}
+									</LocaleLink>
 								</div>
 							</SheetContent>
 						</Sheet>
 
-						{config.saas.enabled &&
-							(user ? (
-								<Button
-									key="dashboard"
-									className="hidden lg:flex"
-									asChild
-									variant="secondary"
-								>
-									<NextLink href="/app">
-										{t("common.menu.dashboard")}
-									</NextLink>
-								</Button>
-							) : (
-								<Button
-									key="login"
-									className="hidden lg:flex"
-									asChild
-									variant="secondary"
-								>
-									<NextLink href="/auth/login" prefetch>
-										{t("common.menu.login")}
-									</NextLink>
-								</Button>
-							))}
+						<Button
+							className="hidden lg:flex"
+							asChild
+							variant="primary"
+						>
+							<LocaleLink href="/#waitlist">
+								{t("common.menu.joinWaitlist")}
+							</LocaleLink>
+						</Button>
 					</div>
 				</div>
 			</div>

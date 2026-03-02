@@ -9,25 +9,21 @@ export function Footer() {
 				<div>
 					<Logo className="opacity-70 grayscale" />
 					<p className="mt-3 text-sm opacity-70">
-						© {new Date().getFullYear()} {config.appName}.{" "}
-						<a href="https://supastarter.dev">
-							Built with supastarter
-						</a>
-						.
+						© {new Date().getFullYear()} {config.appName}
 					</p>
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<LocaleLink href="/blog" className="block">
-						Blog
-					</LocaleLink>
-
-					<a href="#features" className="block">
+					<a href="/#features" className="block">
 						Features
 					</a>
 
-					<a href="/#pricing" className="block">
-						Pricing
+					<a href="/#faq" className="block">
+						FAQ
+					</a>
+
+					<a href="/#contact" className="block">
+						Contact
 					</a>
 				</div>
 

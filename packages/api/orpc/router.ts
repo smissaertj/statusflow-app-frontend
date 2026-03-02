@@ -6,6 +6,7 @@ import { newsletterRouter } from "../modules/newsletter/router";
 import { organizationsRouter } from "../modules/organizations/router";
 import { paymentsRouter } from "../modules/payments/router";
 import { usersRouter } from "../modules/users/router";
+import { waitlistRouter } from "../modules/waitlist/router";
 import { publicProcedure } from "./procedures";
 
 export const router = publicProcedure.router({
@@ -16,6 +17,7 @@ export const router = publicProcedure.router({
 	users: usersRouter,
 	payments: paymentsRouter,
 	ai: aiRouter,
+	waitlist: waitlistRouter,
 });
 
 export type ApiRouterClient = RouterClient<typeof router>;
