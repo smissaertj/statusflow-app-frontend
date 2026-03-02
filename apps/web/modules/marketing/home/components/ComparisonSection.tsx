@@ -2,15 +2,15 @@ import { CheckIcon, XIcon } from "lucide-react";
 
 const comparisons = [
 	{
-		oldWay: "Getting a DM from a frustrated customer.",
+		oldWay: "Finding out your site is down from a frustrated customer tweet.",
 		newWay: "Instant outage alerts across your favorite tools within seconds of a failure.",
 	},
 	{
-		oldWay: "Digging through logs to find the error.",
+		oldWay: "Grasping at headers and stack traces while your conversion rate drops to zero.",
 		newWay: "Instant post-mortems: Trace, headers, and body snapshots included in every notification.",
 	},
 	{
-		oldWay: "Surprise SSL expirations.",
+		oldWay: "The 'Not Secure' badge killing your SEO and credibility before you even notice.",
 		newWay: "Intelligent alerts for expiring SSL certificates and domain registrations.",
 	},
 ];

@@ -316,8 +316,8 @@
 			}
 		},
 		"hero": {
-			"title": "Be the first to know when your site goes down — and the first to join our Beta.",
-			"subtitle": "We're building a leaner, edge-native monitoring stack for a faster web. Join the waiting list today for 1 month of Pro features on us.",
+			"title": "Edge-native Uptime Intelligence, engineered for the modern web.",
+			"subtitle": "Stop chasing logs and start fixing. Join the StatusFlow beta and see what high-fidelity monitoring feels like - 1 month of Pro features on us.",
 			"submit": "Join Waitlist"
 		},
 		"cta": {
