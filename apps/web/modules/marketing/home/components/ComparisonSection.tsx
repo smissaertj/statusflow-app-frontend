@@ -3,15 +3,15 @@ import { CheckIcon, XIcon } from "lucide-react";
 const comparisons = [
 	{
 		oldWay: "Getting a DM from a frustrated customer.",
-		newWay: "Getting a Slack alert 30 seconds after a crash.",
+		newWay: "Instant outage alerts across your favorite tools within seconds of a failure.",
 	},
 	{
 		oldWay: "Digging through logs to find the error.",
-		newWay: "Instant Root Cause Analysis attached to the alert.",
+		newWay: "Instant post-mortems: Trace, headers, and body snapshots included in every notification.",
 	},
 	{
 		oldWay: "Surprise SSL expirations.",
-		newWay: "30-day proactive certificate reminders.",
+		newWay: "Intelligent alerts for expiring SSL certificates and domain registrations.",
 	},
 ];
 
@@ -38,19 +38,19 @@ export function ComparisonSection() {
 							key={item.oldWay}
 							className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6"
 						>
-							<div className="flex items-start gap-3 rounded-2xl border border-destructive/20 bg-destructive/5 p-5">
+							<div className="flex items-start gap-3 rounded-2xl border border-destructive/80 bg-destructive/20 p-5">
 								<div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-destructive/10 text-destructive">
 									<XIcon className="size-4" />
 								</div>
-								<p className="text-foreground/70 text-sm leading-relaxed lg:text-base">
+								<p className="text-foreground/90 text-sm leading-relaxed lg:text-base">
 									{item.oldWay}
 								</p>
 							</div>
-							<div className="flex items-start gap-3 rounded-2xl border border-success/20 bg-success/5 p-5">
+							<div className="flex items-start gap-3 rounded-2xl border border-success/80 bg-success/20 p-5">
 								<div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
 									<CheckIcon className="size-4" />
 								</div>
-								<p className="text-foreground/70 text-sm leading-relaxed lg:text-base">
+								<p className="text-foreground/90 text-sm leading-relaxed lg:text-base">
 									{item.newWay}
 								</p>
 							</div>

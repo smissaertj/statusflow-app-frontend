@@ -47,7 +47,7 @@ export function Hero() {
 		<div id="waitlist" className="relative max-w-full overflow-x-hidden">
 			<div className="container relative z-20 pt-24 pb-16 lg:pb-24">
 				<div className="mx-auto max-w-3xl text-center">
-					<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 font-medium text-primary text-sm">
+					<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 font-medium text-success text-sm">
 						<ActivityIcon className="size-4" />
 						<span>Coming Soon — Early Access</span>
 					</div>

@@ -39,7 +39,7 @@ const pillars: FeaturePillar[] = [
 			{
 				title: "Sub-Minute Check Intervals",
 				description:
-					"We ping your server every 30 or 60 seconds. Catch outages before your customers even notice, reducing your Mean Time to Repair (MTTR).",
+					"We ping your server every 5, 15, 30, 45 or 60 seconds. Catch outages before your customers even notice, reducing your Mean Time to Repair (MTTR).",
 				icon: TimerIcon,
 			},
 		],
@@ -49,18 +49,18 @@ const pillars: FeaturePillar[] = [
 		icon: BellIcon,
 		title: "Smart Alerting",
 		subtitle:
-			"No more alert fatigue. Reach your team where they already work with intelligent escalation.",
+			"No more alert fatigue. Reach your team where they already work.",
 		highlights: [
 			{
 				title: "Multi-Channel Notifications",
 				description:
-					"Get alerts via Slack, Telegram, Discord, SMS, or Email. No more missed critical emails buried in a crowded inbox.",
+					"Eliminate the noise. Choose your priority channels for instant notification and leave the crowded inbox behind. Pure signal, delivered instantly via your tool of choice.",
 				icon: MessageSquareIcon,
 			},
 			{
-				title: "Smart Escalation Policies",
+				title: "Reliable Incident Triggering",
 				description:
-					"If the first person doesn't respond, we notify the next. A digital safety net ensuring no outage goes ignored.",
+					"Seamlessly bridge your uptime data with your team's existing escalation workflows.",
 				icon: UsersIcon,
 			},
 		],
@@ -73,15 +73,15 @@ const pillars: FeaturePillar[] = [
 			"Stop guessing why it went down. Get instant root cause analysis and proactive certificate tracking.",
 		highlights: [
 			{
-				title: "Root Cause Analysis",
+				title: "Instant Post-Mortems",
 				description:
 					"Automatic snapshots of headers and error codes (500, 404, TLS expiry) at the moment of failure. Fix the issue immediately with the data provided in the alert.",
 				icon: ZapIcon,
 			},
 			{
-				title: "SSL Certificate Tracking",
+				title: "Continuous SSL/TLS Inspection",
 				description:
-					"Automated countdowns for your SSL/TLS certificates. Never let an expired certificate take your site down again — get a 30-day heads-up to renew.",
+					"We perform a live cryptographic check of your certificate chain during every uptime scan. Detect configuration issues, trust errors, and upcoming expirations before they impact your users.",
 				icon: ShieldIcon,
 			},
 		],
@@ -132,7 +132,7 @@ export function Features() {
 									return (
 										<div
 											key={highlight.title}
-											className="rounded-3xl border bg-card p-6"
+											className="rounded-3xl border border-primary bg-card p-6"
 										>
 											<div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
 												<HighlightIcon className="size-5" />

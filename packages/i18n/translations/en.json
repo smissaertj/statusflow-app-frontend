@@ -226,7 +226,7 @@
 		}
 	},
 	"contact": {
-		"description": "We are here to help you. Please use the form below to get in touch with us.",
+		"description": "Questions? Feedback? We're all ears. Use the form below to start a conversation with our team.",
 		"form": {
 			"email": "Email",
 			"message": "Message",
@@ -317,12 +317,12 @@
 		},
 		"hero": {
 			"title": "Be the first to know when your site goes down — and the first to join our Beta.",
-			"subtitle": "We're building the leanest, fastest monitoring tool on the market. Join the waiting list today for 1 month of Pro features on us.",
+			"subtitle": "We're building a leaner, edge-native monitoring stack for a faster web. Join the waiting list today for 1 month of Pro features on us.",
 			"submit": "Join Waitlist"
 		},
 		"cta": {
 			"title": "Get 1 month of Pro — free.",
-			"subtitle": "Sign up for early access and get 1 month of Pro features for free once we launch. No credit card required — just your best email.",
+			"subtitle": "Sign up for early access and get 1 month of Pro features for free once we launch. No credit card required — just your email.",
 			"submit": "Claim!"
 		}
 	},

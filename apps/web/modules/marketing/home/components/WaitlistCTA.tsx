@@ -19,9 +19,7 @@ const formSchema = z.object({
 
 export function WaitlistCTA() {
 	const t = useTranslations();
-	const waitlistMutation = useMutation(
-		orpc.waitlist.join.mutationOptions(),
-	);
+	const waitlistMutation = useMutation(orpc.waitlist.join.mutationOptions());
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
@@ -46,7 +44,7 @@ export function WaitlistCTA() {
 	return (
 		<section className="py-12 lg:py-16 xl:py-24">
 			<div className="container max-w-3xl">
-				<div className="rounded-4xl bg-muted p-6 lg:p-8">
+				<div className="rounded-4xl bg-accent border border-primary p-6 lg:p-8">
 					<div className="mb-8 text-center">
 						<RocketIcon className="mx-auto mb-3 size-10 text-primary" />
 						<h2 className="font-medium text-lg leading-tighter text-foreground md:text-xl lg:text-2xl xl:text-3xl">
