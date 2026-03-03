@@ -27,8 +27,17 @@ export function ConsentBanner() {
 				<CookieIcon className="block size-6 shrink-0 text-5xl text-primary/60 mt-1" />
 				<div>
 					<p className="text-sm leading-normal">
-						This site doesn't use cookies yet, but we added this
-						banner to demo it to you.
+						We use essential cookies for authentication and
+						performance analytics to provide the best uptime
+						monitoring experience. By using StatusFlow, you agree to
+						our{" "}
+						<a
+							href="/privacy-policy"
+							className="underline text-primary hover:text-primary/80"
+						>
+							Privacy Policy
+						</a>
+						.
 					</p>
 					<div className="mt-4 flex gap-2">
 						<Button
