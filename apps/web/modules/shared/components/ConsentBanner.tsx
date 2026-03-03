@@ -32,7 +32,7 @@ export function ConsentBanner() {
 						monitoring experience. By using StatusFlow, you agree to
 						our{" "}
 						<a
-							href="/privacy-policy"
+							href="/legal/privacy-policy"
 							className="underline text-primary hover:text-primary/80"
 						>
 							Privacy Policy
