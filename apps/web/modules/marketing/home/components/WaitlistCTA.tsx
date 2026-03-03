@@ -6,12 +6,10 @@ import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
 import { orpc } from "@shared/lib/orpc-query-utils";
 import { useMutation } from "@tanstack/react-query";
-import { ActivityIcon, CheckCircleIcon } from "lucide-react";
-import Image from "next/image";
+import { CheckCircleIcon, RocketIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import heroImage from "../../../../public/images/hero-image.png";
 
 const formSchema = z.object({
 	firstName: z.string().min(1),
@@ -19,7 +17,7 @@ const formSchema = z.object({
 	email: z.string().email(),
 });
 
-export function Hero() {
+export function WaitlistCTA() {
 	const t = useTranslations();
 	const waitlistMutation = useMutation(orpc.waitlist.join.mutationOptions());
 
@@ -44,23 +42,20 @@ export function Hero() {
 	);
 
 	return (
-		<div id="waitlist" className="relative max-w-full overflow-x-hidden">
-			<div className="container relative z-20 pt-24 pb-16 lg:pb-24">
-				<div className="mx-auto max-w-3xl text-center">
-					<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 font-medium text-success text-sm">
-						<ActivityIcon className="size-4" />
-						<span>Coming Soon — Early Access</span>
+		<section className="py-12 lg:py-16 xl:py-24">
+			<div className="container max-w-3xl">
+				<div className="rounded-4xl bg-accent border border-primary p-6 lg:p-8">
+					<div className="mb-8 text-center">
+						<RocketIcon className="mx-auto mb-3 size-10 text-primary" />
+						<h2 className="font-medium text-lg leading-tighter text-foreground md:text-xl lg:text-2xl xl:text-3xl">
+							{t("waitlist.cta.title")}
+						</h2>
+						<p className="mt-2 text-foreground/60 text-sm sm:text-base">
+							{t("waitlist.cta.subtitle")}
+						</p>
 					</div>
 
-					<h1 className="text-balance font-medium text-4xl leading-tighter text-foreground md:text-5xl lg:text-6xl">
-						{t("waitlist.hero.title")}
-					</h1>
-
-					<p className="mx-auto mt-4 max-w-2xl text-foreground/60 text-base sm:text-lg">
-						{t("waitlist.hero.subtitle")}
-					</p>
-
-					<div className="mx-auto mt-8 max-w-md">
+					<div className="mx-auto max-w-lg">
 						{form.formState.isSubmitSuccessful ? (
 							<Alert variant="success">
 								<CheckCircleIcon />
@@ -78,14 +73,12 @@ export function Hero() {
 										type="text"
 										required
 										placeholder={t("waitlist.firstName")}
-										className="h-12"
 										{...form.register("firstName")}
 									/>
 									<Input
 										type="text"
 										required
 										placeholder={t("waitlist.lastName")}
-										className="h-12"
 										{...form.register("lastName")}
 									/>
 								</div>
@@ -94,42 +87,26 @@ export function Hero() {
 										type="email"
 										required
 										placeholder={t("waitlist.email")}
-										className="h-12"
 										{...form.register("email")}
 									/>
 									<Button
 										type="submit"
-										size="lg"
 										variant="primary"
-										className="shrink-0 whitespace-nowrap"
 										loading={form.formState.isSubmitting}
 									>
-										{t("waitlist.hero.submit")}
+										{t("waitlist.cta.submit")}
 									</Button>
 								</div>
 								{form.formState.errors.email && (
-									<p className="mt-2 text-destructive text-xs">
+									<p className="mt-1 text-destructive text-xs">
 										{form.formState.errors.email.message}
 									</p>
 								)}
-								<p className="mt-3 text-foreground/40 text-xs">
-									No credit card required. Unsubscribe
-									anytime.
-								</p>
 							</form>
 						)}
 					</div>
 				</div>
-
-				<div className="mx-auto mt-12 max-w-4xl rounded-4xl border bg-primary/5 lg:mt-16">
-					<Image
-						src={heroImage}
-						alt="StatusFlow — Your website, globally monitored"
-						className="rounded-xl"
-						priority
-					/>
-				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
