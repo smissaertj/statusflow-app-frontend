@@ -3,10 +3,11 @@ import {
 	Font,
 	Head,
 	Html,
+	Img,
 	Section,
 	Tailwind,
 } from "@react-email/components";
-import { Logo } from "@repo/ui";
+import { getBaseUrl } from "@repo/utils";
 import React, { type PropsWithChildren } from "react";
 
 export default function Wrapper({ children }: PropsWithChildren) {
@@ -75,7 +76,17 @@ export default function Wrapper({ children }: PropsWithChildren) {
 				</Head>
 				<Section className="bg-background p-4">
 					<Container className="rounded-lg bg-card p-6 text-card-foreground">
-						<Logo />
+						<div className="flex items-center pb-4">
+							<Img
+								src={`${getBaseUrl()}/images/logo.png`}
+								alt="StatusFlow"
+								width={32}
+								height={32}
+							/>
+							<span className="ml-2 font-semibold text-lg text-foreground">
+								StatusFlow
+							</span>
+						</div>
 						{children}
 					</Container>
 				</Section>
