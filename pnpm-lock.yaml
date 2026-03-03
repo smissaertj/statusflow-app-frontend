@@ -146,8 +146,8 @@ importers:
         specifier: 1.13.2
         version: 1.13.2(@opentelemetry/api@1.9.0)(@orpc/client@1.13.2(@opentelemetry/api@1.9.0))(@tanstack/query-core@5.90.11)
       '@prisma/nextjs-monorepo-workaround-plugin':
-        specifier: ^6.19.0
-        version: 6.19.0
+        specifier: ^7.1.0
+        version: 7.4.2
       '@repo/api':
         specifier: workspace:*
         version: link:../../packages/api
@@ -2891,8 +2891,8 @@ packages:
       typescript:
         optional: true
 
-  '@prisma/nextjs-monorepo-workaround-plugin@6.19.0':
-    resolution: {integrity: sha512-gI80bqfPf8bmW2y2jISsIFrAYZlDcrPC+CBUS5Lehq5umsY0LD1O+qWd4T59OUdHKDb475vbAOiG6K8iQbZsfw==}
+  '@prisma/nextjs-monorepo-workaround-plugin@7.4.2':
+    resolution: {integrity: sha512-kRYfrms66G/jCq5fOEsbK403wbNwUWUCbtwP7ZBb2gEvmVb3WmZ7n4a8qmbyoLNoHVtvm77xzeUPUbSUz2CzrA==}
 
   '@prisma/prisma-schema-wasm@7.1.0-6.ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba':
     resolution: {integrity: sha512-Sl+4fTtdT/75Z22GAq/Ad68I9QxjmQZ2ClLwJrgQeD4jWAsxHZNX0mmftxZu5e9VfZPCgH0hBwEZ17+LpVL5Rg==}
@@ -10114,7 +10114,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@prisma/nextjs-monorepo-workaround-plugin@6.19.0': {}
+  '@prisma/nextjs-monorepo-workaround-plugin@7.4.2': {}
 
   '@prisma/prisma-schema-wasm@7.1.0-6.ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba': {}
 
