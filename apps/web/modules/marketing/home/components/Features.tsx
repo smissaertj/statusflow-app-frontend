@@ -1,96 +1,88 @@
-"use client";
-
-import { cn } from "@repo/ui";
 import {
-	CloudIcon,
-	ComputerIcon,
-	SmartphoneIcon,
-	StarIcon,
-	WandIcon,
+	BellIcon,
+	GlobeIcon,
+	MessageSquareIcon,
+	SearchIcon,
+	ShieldIcon,
+	TimerIcon,
+	UsersIcon,
+	ZapIcon,
 } from "lucide-react";
-import Image, { type StaticImageData } from "next/image";
-import type { JSXElementConstructor, ReactNode } from "react";
-import heroImage from "../../../../public/images/feature.svg";
+import type { JSXElementConstructor } from "react";
 
-export const featureTabs: Array<{
+type FeaturePillar = {
 	id: string;
-	title: string;
 	icon: JSXElementConstructor<any>;
-	subtitle?: string;
-	description?: ReactNode;
-	image?: StaticImageData;
-	imageBorder?: boolean;
-	stack?: {
-		title: string;
-		href: string;
-		icon: JSXElementConstructor<any>;
-	}[];
-	highlights?: {
+	title: string;
+	subtitle: string;
+	highlights: {
 		title: string;
 		description: string;
 		icon: JSXElementConstructor<any>;
-		demoLink?: string;
-		docsLink?: string;
 	}[];
-}> = [
+};
+
+const pillars: FeaturePillar[] = [
 	{
-		id: "feature1",
-		title: "Feature 1",
-		icon: StarIcon,
-		subtitle: "Do more with our amazing SaaS.",
-		description:
-			"This is a brilliant feature. And below you can see some reasons why. This is basically just a dummy text.",
-		stack: [],
-		image: heroImage,
-		imageBorder: false,
+		id: "reliability",
+		icon: GlobeIcon,
+		title: "Reliability & Speed",
+		subtitle:
+			"Know exactly when things break. Multi-region checks catch outages the second they happen.",
 		highlights: [
 			{
-				title: "Benefit 1",
+				title: "Multi-Region Monitoring",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: WandIcon,
+					"Check your site's status from 10+ global locations simultaneously. Eliminate false positives and know exactly how your site performs for users in London vs. Los Angeles.",
+				icon: GlobeIcon,
 			},
 			{
-				title: "Benefit 2",
+				title: "Sub-Minute Check Intervals",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: ComputerIcon,
-			},
-			{
-				title: "Benefit 3",
-				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: SmartphoneIcon,
+					"We ping your server every 5, 15, 30, 45 or 60 seconds. Catch outages before your customers even notice, reducing your Mean Time to Repair (MTTR).",
+				icon: TimerIcon,
 			},
 		],
 	},
 	{
-		id: "feature2",
-		title: "Feature 2",
-		icon: CloudIcon,
-		subtitle: "Your SaaS can also do this.",
-		description: "Another dummy text for another feature.",
-		stack: [],
-		image: heroImage,
-		imageBorder: false,
+		id: "alerting",
+		icon: BellIcon,
+		title: "Smart Alerting",
+		subtitle:
+			"No more alert fatigue. Reach your team where they already work.",
 		highlights: [
 			{
-				title: "Benefit 1",
+				title: "Multi-Channel Notifications",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: WandIcon,
+					"Eliminate the noise. Choose your priority channels for instant notification and leave the crowded inbox behind. Pure signal, delivered instantly via your tool of choice.",
+				icon: MessageSquareIcon,
 			},
 			{
-				title: "Benefit 2",
+				title: "Reliable Incident Triggering",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: ComputerIcon,
+					"Seamlessly bridge your uptime data with your team's existing escalation workflows.",
+				icon: UsersIcon,
+			},
+		],
+	},
+	{
+		id: "diagnostics",
+		icon: SearchIcon,
+		title: "Deep Diagnostics",
+		subtitle:
+			"Stop guessing why it went down. Get instant root cause analysis and proactive certificate tracking.",
+		highlights: [
+			{
+				title: "Instant Post-Mortems",
+				description:
+					"Automatic snapshots of headers and error codes (500, 404, TLS expiry) at the moment of failure. Fix the issue immediately with the data provided in the alert.",
+				icon: ZapIcon,
 			},
 			{
-				title: "Benefit 3",
+				title: "Continuous SSL/TLS Inspection",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
-				icon: SmartphoneIcon,
+					"We perform a live cryptographic check of your certificate chain during every uptime scan. Detect configuration issues, trust errors, and upcoming expirations before they impact your users.",
+				icon: ShieldIcon,
 			},
 		],
 	},
@@ -100,116 +92,64 @@ export function Features() {
 	return (
 		<section id="features" className="scroll-my-20 py-12 lg:py-16 xl:py-24">
 			<div className="container">
-				<div className="mb-6 lg:mb-0 max-w-3xl">
-					<small className="font-medium text-xs uppercase tracking-wider text-primary mb-4 block">
-						Incredible features
+				<div className="mb-6 max-w-3xl lg:mb-0">
+					<small className="mb-4 block font-medium text-xs uppercase tracking-wider text-primary">
+						Why StatusFlow
 					</small>
-					<h2 className="text-3xl lg:text-4xl xl:text-5xl font-medium">
-						Features your clients will love
+					<h2 className="font-medium text-3xl lg:text-4xl xl:text-5xl">
+						Everything you need to stay ahead of downtime
 					</h2>
-					<p className="mt-2 text-base lg:text-lg text-foreground/60">
-						In this section you can showcase all the features of
-						your SaaS provides and how they can benefit your
-						clients.
+					<p className="mt-2 text-base text-foreground/60 lg:text-lg">
+						Advanced uptime monitoring that cuts through the noise.
+						Get deep diagnostics and instant alerts before your
+						customers do.
 					</p>
 				</div>
 			</div>
 
-			<div>
-				<div className="container mt-8 lg:mt-12 grid grid-cols-1 gap-8 md:gap-12 lg:gap-16 xl:gap-24">
-					{featureTabs.map((tab) => {
-						const filteredStack = tab.stack || [];
-						const filteredHighlights = tab.highlights || [];
-						return (
-							<div key={tab.id} className="">
-								<div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-									<div>
-										{tab.image && (
-											<Image
-												src={tab.image}
-												alt={tab.title}
-												className={cn(
-													" h-auto w-full max-w-xl",
-													{
-														"rounded-2xl border-4":
-															tab.imageBorder,
-													},
-												)}
-											/>
-										)}
-									</div>
-
-									<div>
-										<h3 className="font-normal text-lg text-foreground leading-tight md:text-xl lg:text-2xl">
-											<span className="font-medium">
-												{tab.title}.{" "}
-											</span>
-											<span className="font-sans">
-												{tab.subtitle}
-											</span>
-										</h3>
-
-										{tab.description && (
-											<p className="mt-4 text-foreground/60">
-												{tab.description}
-											</p>
-										)}
-
-										{filteredStack?.length > 0 && (
-											<div className="mt-4 flex flex-wrap gap-6">
-												{filteredStack.map(
-													(tool, k) => (
-														<a
-															href={tool.href}
-															target="_blank"
-															key={`stack-tool-${k}`}
-															className="flex items-center gap-2"
-															rel="noreferrer"
-														>
-															<tool.icon className="size-6" />
-															<strong className="block text-sm">
-																{tool.title}
-															</strong>
-														</a>
-													),
-												)}
-											</div>
-										)}
-									</div>
+			<div className="container mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:gap-20">
+				{pillars.map((pillar) => {
+					const PillarIcon = pillar.icon;
+					return (
+						<div key={pillar.id}>
+							<div className="flex items-start gap-4">
+								<div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+									<PillarIcon className="size-6" />
 								</div>
-
-								{filteredHighlights.length > 0 && (
-									<div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:mt-12">
-										{filteredHighlights.map(
-											(highlight, k) => (
-												<div
-													key={`highlight-${k}`}
-													className="flex flex-col items-stretch justify-between rounded-2xl p-4 lg:p-6 bg-card"
-												>
-													<div>
-														<highlight.icon
-															className="text-primary text-xl"
-															width="1em"
-															height="1em"
-														/>
-														<strong className="mt-2 block font-medium text-lg">
-															{highlight.title}
-														</strong>
-														<p className="mt-1 text-sm">
-															{
-																highlight.description
-															}
-														</p>
-													</div>
-												</div>
-											),
-										)}
-									</div>
-								)}
+								<div>
+									<h3 className="font-medium text-xl lg:text-2xl">
+										{pillar.title}
+									</h3>
+									<p className="mt-1 max-w-2xl text-foreground/60">
+										{pillar.subtitle}
+									</p>
+								</div>
 							</div>
-						);
-					})}
-				</div>
+
+							<div className="mt-6 grid gap-6 sm:grid-cols-2">
+								{pillar.highlights.map((highlight) => {
+									const HighlightIcon = highlight.icon;
+									return (
+										<div
+											key={highlight.title}
+											className="rounded-3xl border border-primary bg-card p-6"
+										>
+											<div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+												<HighlightIcon className="size-5" />
+											</div>
+											<h4 className="font-medium text-base">
+												{highlight.title}
+											</h4>
+											<p className="mt-1 text-foreground/60 text-sm leading-relaxed">
+												{highlight.description}
+											</p>
+										</div>
+									);
+								})}
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

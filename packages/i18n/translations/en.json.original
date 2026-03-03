@@ -207,8 +207,6 @@
 			"dashboard": "Dashboard",
 			"docs": "Docs",
 			"faq": "FAQ",
-			"features": "Features",
-			"joinWaitlist": "Join Waitlist",
 			"login": "Login",
 			"pricing": "Pricing"
 		},
@@ -226,7 +224,7 @@
 		}
 	},
 	"contact": {
-		"description": "Questions? Feedback? We're all ears. Use the form below to start a conversation with our team.",
+		"description": "We are here to help you. Please use the form below to get in touch with us.",
 		"form": {
 			"email": "Email",
 			"message": "Message",
@@ -243,7 +241,7 @@
 		"title": "Documentation"
 	},
 	"faq": {
-		"description": "Everything you need to know about StatusFlow.",
+		"description": "Do you have any questions? We have got you covered.",
 		"title": "Frequently asked questions"
 	},
 	"mail": {
@@ -276,10 +274,6 @@
 			"body": "Thank you for signing up for the supastarter newsletter. We will keep you updated with the latest news and updates.",
 			"subject": "Welcome to our newsletter"
 		},
-		"waitlistSignup": {
-			"body": "Hey {firstName}, you're on the StatusFlow waiting list! We're working hard to build the leanest, fastest uptime monitoring tool on the market. As an early supporter, you'll get 1 month of Pro features for free when we launch. We'll be in touch soon.",
-			"subject": "You're on the StatusFlow waiting list!"
-		},
 		"organizationInvitation": {
 			"body": "You have been invited to join the organization {organizationName}. Click the button below or copy and paste the link into your browser of choice to accept the invitation and join the organization.",
 			"headline": "Join the organization {organizationName}",
@@ -301,30 +295,6 @@
 		"submit": "Subscribe",
 		"subtitle": "Be among the first to get access to supastarter.nextjs.",
 		"title": "Get early access"
-	},
-	"waitlist": {
-		"firstName": "First name",
-		"lastName": "Last name",
-		"email": "Your email address",
-		"hints": {
-			"error": {
-				"message": "Something went wrong. Please try again later."
-			},
-			"success": {
-				"message": "You're on the list! We'll notify you as soon as StatusFlow launches.",
-				"title": "You're in!"
-			}
-		},
-		"hero": {
-			"title": "Edge-native Uptime Intelligence, engineered for the modern web.",
-			"subtitle": "Stop chasing logs and start fixing. Join the StatusFlow beta and see what high-fidelity monitoring feels like - 1 month of Pro features on us.",
-			"submit": "Join Waitlist"
-		},
-		"cta": {
-			"title": "Get 1 month of Pro — free.",
-			"subtitle": "Sign up for early access and get 1 month of Pro features for free once we launch. No credit card required — just your email.",
-			"submit": "Claim!"
-		}
 	},
 	"onboarding": {
 		"account": {

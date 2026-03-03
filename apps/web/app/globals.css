@@ -4,6 +4,8 @@
 
 @source "../../../packages/ui/components";
 
+@plugin "@tailwindcss/typography";
+
 @variant dark (&:where(.dark, .dark *));
 
 

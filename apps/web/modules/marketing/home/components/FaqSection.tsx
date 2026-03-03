@@ -14,20 +14,28 @@ export function FaqSection({ className }: { className?: string }) {
 
 	const items = [
 		{
-			question: "What is the refund policy?",
-			answer: "We offer a 30-day money-back guarantee if you're not happy with our product.",
+			question: "What regions do you monitor from?",
+			answer: "StatusFlow monitors your site from 10+ global locations simultaneously, including North America, Europe, and Asia-Pacific. This eliminates false positives and gives you a true picture of your site's availability worldwide.",
 		},
 		{
-			question: "How do I cancel my subscription?",
-			answer: "You can cancel your subscription by visiting the billing page.",
+			question: "How fast will I get alerted?",
+			answer: "With sub-minute check intervals (every 5, 15, 30, 45 or 60 seconds), you'll receive an alert within seconds of an outage. Alerts are delivered to Slack, Telegram, Discord, SMS, or Email — wherever your team works.",
 		},
 		{
-			question: "Can I change my plan?",
-			answer: "Yes, you can change your plan at any time by visiting the billing page.",
+			question: "What are Instant post-mortems?",
+			answer: "When your site or application goes down, StatusFlow automatically captures a snapshot of HTTP headers, error codes (500, 404, TLS expiry), and response data at the moment of failure. This data is attached directly to your alert so you can diagnose and fix the issue immediately.",
 		},
 		{
-			question: "Do you offer a free trial?",
-			answer: "Yes, we offer a 14-day free trial.",
+			question: "Will there be a free tier?",
+			answer: "Yes! We plan to offer a generous free tier at launch. Early adopters who join the waiting list will also receive 1 month of Pro features for free — no credit card required.",
+		},
+		{
+			question: "What notification channels are supported?",
+			answer: "StatusFlow supports Slack, Telegram, Discord, SMS, and Email out of the box. Smart escalation policies on your end ensure that if the first responder doesn't acknowledge an alert, the next person on the team is automatically notified.",
+		},
+		{
+			question: "How does SSL certificate tracking work?",
+			answer: "StatusFlow automatically monitors the expiration dates of your SSL/TLS certificates and sends you a reminder 30 days before they expire. No more surprise expirations taking your site down.",
 		},
 	];
 
