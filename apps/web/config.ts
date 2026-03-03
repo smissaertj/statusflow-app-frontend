@@ -4,7 +4,7 @@ export const config = {
 
 	// the link to the documentation app (if not defined, the documentation link will not be shown in the app)
 	docsLink: process.env.NEXT_PUBLIC_DOCS_URL as string | undefined,
-	
+
 	// the email address to which the contact form should be sent
 	contactFormTo: process.env.CONTACT_FORM_TO_MAIL as string,
 
