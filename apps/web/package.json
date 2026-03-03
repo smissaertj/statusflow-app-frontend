@@ -7,7 +7,7 @@
 		"@next/third-parties": "16.0.3",
 		"@orpc/client": "1.13.2",
 		"@orpc/tanstack-query": "1.13.2",
-		"@prisma/nextjs-monorepo-workaround-plugin": "^6.19.0",
+		"@prisma/nextjs-monorepo-workaround-plugin": "^7.1.0",
 		"@repo/api": "workspace:*",
 		"@repo/auth": "workspace:*",
 		"@repo/database": "workspace:*",
