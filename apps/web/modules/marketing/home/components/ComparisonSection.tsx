@@ -24,7 +24,7 @@ export function ComparisonSection() {
 						A better way
 					</small>
 					<h2 className="font-medium text-3xl lg:text-4xl xl:text-5xl">
-						The old way vs. StatusFlow
+						The Old Way vs. StatusFlow
 					</h2>
 					<p className="mt-2 text-base text-foreground/60 lg:text-lg">
 						See how StatusFlow transforms your incident response
