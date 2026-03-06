@@ -28,8 +28,7 @@ export function ConsentBanner() {
 				<div>
 					<p className="text-sm leading-normal">
 						We use essential cookies for authentication and
-						performance analytics to provide the best uptime
-						monitoring experience. By using StatusFlow, you agree to
+						performance analytics. By using StatusFlow, you agree to
 						our{" "}
 						<a
 							href="/legal/privacy-policy"
@@ -41,13 +40,14 @@ export function ConsentBanner() {
 					</p>
 					<div className="mt-4 flex gap-2">
 						<Button
-							variant="secondary"
+							variant="destructive"
 							className="flex-1"
 							onClick={() => declineCookies()}
 						>
 							Decline
 						</Button>
 						<Button
+							variant="primary"
 							className="flex-1"
 							onClick={() => allowCookies()}
 						>

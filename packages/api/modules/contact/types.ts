@@ -6,4 +6,11 @@ export const contactFormSchema = z.object({
 	message: z.string().min(10),
 });
 
+export const contactFormSubmissionSchema = contactFormSchema.extend({
+	turnstileToken: z.string().min(1),
+});
+
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormSubmissionValues = z.infer<
+	typeof contactFormSubmissionSchema
+>;

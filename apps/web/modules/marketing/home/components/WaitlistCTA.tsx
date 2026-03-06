@@ -1,40 +1,66 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { waitlistFormSchema } from "@repo/api/modules/waitlist/types";
 import { Alert, AlertDescription, AlertTitle } from "@repo/ui/components/alert";
 import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
+import { TurnstileField } from "@shared/components/TurnstileField";
 import { orpc } from "@shared/lib/orpc-query-utils";
 import { useMutation } from "@tanstack/react-query";
-import { CheckCircleIcon, RocketIcon } from "lucide-react";
+import { CheckCircleIcon, CircleAlertIcon, RocketIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
-
-const formSchema = z.object({
-	firstName: z.string().min(1),
-	lastName: z.string().min(1),
-	email: z.string().email(),
-});
 
 export function WaitlistCTA() {
 	const t = useTranslations();
 	const waitlistMutation = useMutation(orpc.waitlist.join.mutationOptions());
+	const [hasStartedTyping, setHasStartedTyping] = useState(false);
+	const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
 	const form = useForm({
-		resolver: zodResolver(formSchema),
+		defaultValues: {
+			email: "",
+			firstName: "",
+			lastName: "",
+		},
+		resolver: zodResolver(waitlistFormSchema),
 	});
+
+	const formValues = form.watch();
+
+	useEffect(() => {
+		if (
+			!hasStartedTyping &&
+			Object.values(formValues).some((value) => value.trim().length > 0)
+		) {
+			setHasStartedTyping(true);
+		}
+	}, [formValues, hasStartedTyping]);
 
 	const onSubmit = form.handleSubmit(
 		async ({ firstName, lastName, email }) => {
+			if (!turnstileToken) {
+				form.setError("root", {
+					message: "Please complete the human verification.",
+				});
+				return;
+			}
+
 			try {
+				form.clearErrors("root");
 				await waitlistMutation.mutateAsync({
 					firstName,
 					lastName,
 					email,
+					turnstileToken,
 				});
 			} catch {
-				form.setError("email", {
+				setTurnstileToken(null);
+				setTurnstileResetKey((currentKey) => currentKey + 1);
+				form.setError("root", {
 					message: t("waitlist.hints.error.message"),
 				});
 			}
@@ -42,7 +68,7 @@ export function WaitlistCTA() {
 	);
 
 	return (
-		<section className="py-12 lg:py-16 xl:py-24">
+		<section id="waitlist" className="py-12 lg:py-16 xl:py-24">
 			<div className="container max-w-3xl">
 				<div className="rounded-4xl bg-accent border border-primary p-6 lg:p-8">
 					<div className="mb-8 text-center">
@@ -68,6 +94,15 @@ export function WaitlistCTA() {
 							</Alert>
 						) : (
 							<form onSubmit={onSubmit}>
+								{form.formState.errors.root?.message && (
+									<Alert className="mb-4" variant="error">
+										<CircleAlertIcon />
+										<AlertTitle>
+											{form.formState.errors.root.message}
+										</AlertTitle>
+									</Alert>
+								)}
+
 								<div className="mb-2 flex items-center gap-2">
 									<Input
 										type="text"
@@ -90,6 +125,9 @@ export function WaitlistCTA() {
 										{...form.register("email")}
 									/>
 									<Button
+										disabled={
+											hasStartedTyping && !turnstileToken
+										}
 										type="submit"
 										variant="primary"
 										loading={form.formState.isSubmitting}
@@ -97,11 +135,18 @@ export function WaitlistCTA() {
 										{t("waitlist.cta.submit")}
 									</Button>
 								</div>
-								{form.formState.errors.email && (
-									<p className="mt-1 text-destructive text-xs">
-										{form.formState.errors.email.message}
-									</p>
-								)}
+								<TurnstileField
+									key={turnstileResetKey}
+									action="waitlist_form"
+									className="mt-4"
+									enabled={hasStartedTyping}
+									onTokenChange={(token) => {
+										setTurnstileToken(token);
+										if (token) {
+											form.clearErrors("root");
+										}
+									}}
+								/>
 							</form>
 						)}
 					</div>
