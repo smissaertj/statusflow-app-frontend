@@ -9,7 +9,6 @@ import { useMutation } from "@tanstack/react-query";
 import { ActivityIcon, CheckCircleIcon } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import heroImage from "../../../../public/images/hero-image.png";
@@ -23,7 +22,6 @@ const formSchema = z.object({
 
 export function Hero() {
 	const t = useTranslations();
-	const { resolvedTheme } = useTheme();
 	const waitlistMutation = useMutation(orpc.waitlist.join.mutationOptions());
 
 	const form = useForm({
@@ -126,11 +124,15 @@ export function Hero() {
 
 				<div className="mx-auto mt-12 max-w-4xl rounded ring-3 ring-primary lg:mt-16">
 					<Image
-						src={
-							resolvedTheme === "dark" ? heroImageDark : heroImage
-						}
+						src={heroImage}
 						alt="StatusFlow — Your website, globally monitored"
-						className="rounded-xl"
+						className="block rounded-xl dark:hidden"
+						priority
+					/>
+					<Image
+						src={heroImageDark}
+						alt="StatusFlow — Your website, globally monitored"
+						className="hidden rounded-xl dark:block"
 						priority
 					/>
 				</div>
