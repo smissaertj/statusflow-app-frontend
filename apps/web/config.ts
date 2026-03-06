@@ -9,8 +9,9 @@ export const config = {
 	contactFormTo: process.env.CONTACT_FORM_TO_MAIL as string,
 
 	// the Cloudflare Turnstile site key used by public forms
-	turnstileSiteKey:
-		process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY as string | undefined,
+	turnstileSiteKey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY as
+		| string
+		| undefined,
 
 	// the themes that should be available in the app
 	enabledThemes: ["light", "dark"],

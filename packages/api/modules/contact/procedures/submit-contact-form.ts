@@ -1,10 +1,10 @@
 import { ORPCError } from "@orpc/client";
 import { logger } from "@repo/logs";
 import { sendEmail } from "@repo/mail";
+import { config } from "../../../config";
 import { verifyTurnstileToken } from "../../../lib/turnstile";
 import { localeMiddleware } from "../../../orpc/middleware/locale-middleware";
 import { publicProcedure } from "../../../orpc/procedures";
-import { config } from "../../../config";
 import { contactFormSubmissionSchema } from "../types";
 
 export const submitContactForm = publicProcedure

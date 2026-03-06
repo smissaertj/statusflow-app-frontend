@@ -61,8 +61,7 @@ export async function verifyTurnstileToken({
 		throw new ORPCError("INTERNAL_SERVER_ERROR");
 	}
 
-	const result =
-		(await response.json()) as TurnstileVerificationResult;
+	const result = (await response.json()) as TurnstileVerificationResult;
 
 	if (!result.success || result.action !== action) {
 		throw new ORPCError("BAD_REQUEST");

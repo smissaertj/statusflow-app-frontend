@@ -5,13 +5,13 @@ import { waitlistFormSchema } from "@repo/api/modules/waitlist/types";
 import { Alert, AlertDescription, AlertTitle } from "@repo/ui/components/alert";
 import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
+import { TurnstileField } from "@shared/components/TurnstileField";
 import { orpc } from "@shared/lib/orpc-query-utils";
 import { useMutation } from "@tanstack/react-query";
 import { CheckCircleIcon, CircleAlertIcon, RocketIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { TurnstileField } from "@shared/components/TurnstileField";
 
 export function WaitlistCTA() {
 	const t = useTranslations();
@@ -125,7 +125,9 @@ export function WaitlistCTA() {
 										{...form.register("email")}
 									/>
 									<Button
-										disabled={hasStartedTyping && !turnstileToken}
+										disabled={
+											hasStartedTyping && !turnstileToken
+										}
 										type="submit"
 										variant="primary"
 										loading={form.formState.isSubmitting}

@@ -11,6 +11,4 @@ export const waitlistSubmissionSchema = waitlistFormSchema.extend({
 });
 
 export type WaitlistFormValues = z.infer<typeof waitlistFormSchema>;
-export type WaitlistSubmissionValues = z.infer<
-	typeof waitlistSubmissionSchema
->;
+export type WaitlistSubmissionValues = z.infer<typeof waitlistSubmissionSchema>;

@@ -1,9 +1,6 @@
 "use client";
 
-import {
-	Turnstile,
-	type TurnstileInstance,
-} from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { config } from "@/config";
 
