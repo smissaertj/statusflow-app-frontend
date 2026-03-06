@@ -14,10 +14,12 @@ import {
 } from "@repo/ui/components/form";
 import { Input } from "@repo/ui/components/input";
 import { Textarea } from "@repo/ui/components/textarea";
+import { TurnstileField } from "@shared/components/TurnstileField";
 import { orpc } from "@shared/lib/orpc-query-utils";
 import { useMutation } from "@tanstack/react-query";
 import { MailCheckIcon, MailIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export function ContactForm() {
@@ -25,6 +27,9 @@ export function ContactForm() {
 	const contactFormMutation = useMutation(
 		orpc.contact.submit.mutationOptions(),
 	);
+	const [hasStartedTyping, setHasStartedTyping] = useState(false);
+	const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+	const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
 	const form = useForm({
 		resolver: zodResolver(contactFormSchema),
@@ -35,10 +40,34 @@ export function ContactForm() {
 		},
 	});
 
+	const formValues = form.watch();
+
+	useEffect(() => {
+		if (
+			!hasStartedTyping &&
+			Object.values(formValues).some((value) => value.trim().length > 0)
+		) {
+			setHasStartedTyping(true);
+		}
+	}, [formValues, hasStartedTyping]);
+
 	const onSubmit = form.handleSubmit(async (values) => {
+		if (!turnstileToken) {
+			form.setError("root", {
+				message: "Please complete the human verification.",
+			});
+			return;
+		}
+
 		try {
-			await contactFormMutation.mutateAsync(values);
+			form.clearErrors("root");
+			await contactFormMutation.mutateAsync({
+				...values,
+				turnstileToken,
+			});
 		} catch {
+			setTurnstileToken(null);
+			setTurnstileResetKey((currentKey) => currentKey + 1);
 			form.setError("root", {
 				message: t("contact.form.notifications.error"),
 			});
@@ -120,11 +149,24 @@ export function ContactForm() {
 						<Button
 							type="submit"
 							className="w-full"
+							disabled={hasStartedTyping && !turnstileToken}
 							variant="primary"
 							loading={form.formState.isSubmitting}
 						>
 							{t("contact.form.submit")}
 						</Button>
+
+						<TurnstileField
+							key={turnstileResetKey}
+							action="contact_form"
+							enabled={hasStartedTyping}
+							onTokenChange={(token) => {
+								setTurnstileToken(token);
+								if (token) {
+									form.clearErrors("root");
+								}
+							}}
+						/>
 					</form>
 				</Form>
 			)}
