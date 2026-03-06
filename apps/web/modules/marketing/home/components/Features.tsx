@@ -97,7 +97,7 @@ export function Features() {
 						Why StatusFlow
 					</small>
 					<h2 className="font-medium text-3xl lg:text-4xl xl:text-5xl">
-						Everything you need to stay ahead of downtime
+						Everything You Need to Stay Ahead of Downtime
 					</h2>
 					<p className="mt-2 text-base text-foreground/60 lg:text-lg">
 						Advanced uptime monitoring that cuts through the noise.

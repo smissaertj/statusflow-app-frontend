@@ -244,7 +244,7 @@
 	},
 	"faq": {
 		"description": "Everything you need to know about StatusFlow.",
-		"title": "Frequently asked questions"
+		"title": "Frequently Asked Questions"
 	},
 	"mail": {
 		"common": {
@@ -316,7 +316,7 @@
 			}
 		},
 		"hero": {
-			"title": "Edge-native Uptime Intelligence, engineered for the modern web.",
+			"title": "Edge-Native Uptime Intelligence, Engineered for the Modern Web.",
 			"subtitle": "Stop chasing logs and start fixing. Join the StatusFlow beta and see what high-fidelity monitoring feels like - 1 month of Pro features on us.",
 			"submit": "Join Waitlist"
 		},

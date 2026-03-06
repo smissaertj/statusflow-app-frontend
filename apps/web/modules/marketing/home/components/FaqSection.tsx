@@ -31,7 +31,7 @@ export function FaqSection({ className }: { className?: string }) {
 		},
 		{
 			question: "What notification channels are supported?",
-			answer: "StatusFlow supports Slack, Telegram, Discord, SMS, and Email out of the box. Smart escalation policies on your end ensure that if the first responder doesn't acknowledge an alert, the next person on the team is automatically notified.",
+			answer: "StatusFlow supports Slack, Telegram, Discord, SMS, Email and Webhooks out of the box. Smart escalation policies on your end ensure that if the first responder doesn't acknowledge an alert, the next person on the team is automatically notified.",
 		},
 		{
 			question: "How does SSL certificate tracking work?",
