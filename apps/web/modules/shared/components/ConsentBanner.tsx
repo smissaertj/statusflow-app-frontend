@@ -28,8 +28,7 @@ export function ConsentBanner() {
 				<div>
 					<p className="text-sm leading-normal">
 						We use essential cookies for authentication and
-						performance analytics to provide the best uptime
-						monitoring experience. By using StatusFlow, you agree to
+						performance analytics. By using StatusFlow, you agree to
 						our{" "}
 						<a
 							href="/legal/privacy-policy"
