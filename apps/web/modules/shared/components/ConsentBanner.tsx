@@ -40,13 +40,14 @@ export function ConsentBanner() {
 					</p>
 					<div className="mt-4 flex gap-2">
 						<Button
-							variant="secondary"
+							variant="destructive"
 							className="flex-1"
 							onClick={() => declineCookies()}
 						>
 							Decline
 						</Button>
 						<Button
+							variant="primary"
 							className="flex-1"
 							onClick={() => allowCookies()}
 						>
