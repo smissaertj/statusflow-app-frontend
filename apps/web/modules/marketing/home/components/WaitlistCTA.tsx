@@ -42,7 +42,7 @@ export function WaitlistCTA() {
 	);
 
 	return (
-		<section className="py-12 lg:py-16 xl:py-24">
+		<section id="waitlist" className="py-12 lg:py-16 xl:py-24">
 			<div className="container max-w-3xl">
 				<div className="rounded-4xl bg-accent border border-primary p-6 lg:p-8">
 					<div className="mb-8 text-center">
