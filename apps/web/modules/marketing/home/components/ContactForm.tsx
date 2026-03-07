@@ -158,6 +158,7 @@ export function ContactForm() {
 
 						<TurnstileField
 							key={turnstileResetKey}
+							className="mt-4 flex justify-center"
 							action="contact_form"
 							enabled={hasStartedTyping}
 							onTokenChange={(token) => {
