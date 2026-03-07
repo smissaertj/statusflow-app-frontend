@@ -138,7 +138,7 @@ export function WaitlistCTA() {
 								<TurnstileField
 									key={turnstileResetKey}
 									action="waitlist_form"
-									className="mt-4"
+									className="mt-4 flex justify-center"
 									enabled={hasStartedTyping}
 									onTokenChange={(token) => {
 										setTurnstileToken(token);
